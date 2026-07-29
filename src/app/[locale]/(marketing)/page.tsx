@@ -31,22 +31,23 @@ export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const safeLocale: MarketingLocale = locale === 'en' ? 'en' : 'zh';
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000';
 
   const structuredData = {
     '@context': 'https://schema.org',
     '@graph': [
       {
         '@type': 'Organization',
-        '@id': 'https://scapeleap.com/#organization',
+        '@id': `${baseUrl}/#organization`,
         'name': 'ScapeLeap',
-        'url': 'https://scapeleap.com',
+        'url': baseUrl,
       },
       {
         '@type': 'WebSite',
-        '@id': 'https://scapeleap.com/#website',
-        'url': 'https://scapeleap.com',
+        '@id': `${baseUrl}/#website`,
+        'url': baseUrl,
         'name': 'ScapeLeap',
-        'publisher': { '@id': 'https://scapeleap.com/#organization' },
+        'publisher': { '@id': `${baseUrl}/#organization` },
         'inLanguage': safeLocale === 'zh' ? 'zh-CN' : 'en',
       },
       {
