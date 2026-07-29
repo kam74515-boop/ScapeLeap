@@ -26,7 +26,10 @@ if [[ ! "${revision}" =~ ^[0-9a-f]{40}$ ]]; then
   exit 1
 fi
 
-deployed_revision="$(tr -d '\n' <"${revision_file}" 2>/dev/null || true)"
+deployed_revision=""
+if [[ -f "${revision_file}" ]]; then
+  deployed_revision="$(tr -d '\n' <"${revision_file}")"
+fi
 if [[ "${revision}" == "${deployed_revision}" && -L "${root_dir}/current" ]]; then
   exit 0
 fi
@@ -39,7 +42,8 @@ mkdir -p "${build_dir}"
 git -C "${source_dir}" archive "${revision}" | tar -x -C "${build_dir}"
 cd "${build_dir}"
 
-npm ci
+npm ci --no-audit
+npm audit --omit=dev
 
 export BETTER_AUTH_SECRET="build-only-secret-not-used-at-runtime"
 export BETTER_AUTH_URL="http://127.0.0.1:3010"

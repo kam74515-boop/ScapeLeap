@@ -12,6 +12,10 @@ museart.cloud {
 
 	header {
 		-Server
+		-X-Middleware-Rewrite
+		-X-Nextjs-Cache
+		-X-Nextjs-Prerender
+		-X-Nextjs-Stale-Time
 		X-Content-Type-Options "nosniff"
 		X-Frame-Options "DENY"
 		Referrer-Policy "strict-origin-when-cross-origin"

@@ -16,6 +16,7 @@ runuser -u "${SCAPELEAP_DEPLOY_USER}" -- \
   HOME="${deploy_home}" \
   LANG="C.UTF-8" \
   PATH="/usr/local/bin:/usr/bin:/bin" \
+  NEXT_TELEMETRY_DISABLED="1" \
   SCAPELEAP_DEPLOY_BRANCH="${SCAPELEAP_DEPLOY_BRANCH}" \
   SCAPELEAP_REPO_URL="${SCAPELEAP_REPO_URL}" \
   SCAPELEAP_ROOT="${root_dir}" \
@@ -23,7 +24,10 @@ runuser -u "${SCAPELEAP_DEPLOY_USER}" -- \
   SCAPELEAP_DATABASE_URL="${DATABASE_URL}" \
   /usr/local/bin/scapeleap-next-deploy
 
-pending_revision="$(tr -d '\n' <"${root_dir}/pending-revision" 2>/dev/null || true)"
+pending_revision=""
+if [[ -f "${root_dir}/pending-revision" ]]; then
+  pending_revision="$(tr -d '\n' <"${root_dir}/pending-revision")"
+fi
 if [[ -z "${pending_revision}" ]]; then
   exit 0
 fi
