@@ -1,0 +1,10 @@
+[Unit]
+Description=Build and atomically deploy ScapeLeap Next.js
+After=network-online.target postgresql.service
+Wants=network-online.target postgresql.service
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/scapeleap-next/production.env
+ExecStart=/usr/local/sbin/scapeleap-next-deploy-wrapper
+TimeoutStartSec=45min

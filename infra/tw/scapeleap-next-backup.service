@@ -1,0 +1,8 @@
+[Unit]
+Description=Back up the ScapeLeap PostgreSQL database
+After=postgresql.service
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/scapeleap-next/production.env
+ExecStart=/usr/local/sbin/scapeleap-next-backup

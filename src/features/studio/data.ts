@@ -1,0 +1,95 @@
+export const demoProjects = [
+  {
+    id: 'qing-shan-hu',
+    code: 'SL-26018',
+    name: '青山湖 · 云栖住宅',
+    client: '周静雯',
+    stage: '方案设计',
+    status: 'designing',
+    progress: 58,
+    area: '268 ㎡',
+    budget: '¥ 186 万',
+    due: '09 / 18',
+    lead: '林予安',
+    tone: '#858d7c',
+    accent: '#e6dfd2',
+  },
+  {
+    id: 'north-bund',
+    code: 'SL-26017',
+    name: '北外滩 · 澄光会所',
+    client: '澄光置业',
+    stage: '深化设计',
+    status: 'designing',
+    progress: 72,
+    area: '860 ㎡',
+    budget: '¥ 520 万',
+    due: '08 / 26',
+    lead: '陈一川',
+    tone: '#b29b82',
+    accent: '#f0e7dc',
+  },
+  {
+    id: 'west-lake',
+    code: 'SL-26014',
+    name: '西湖 · 松庭别墅',
+    client: '沈屿',
+    stage: '采购交付',
+    status: 'procurement',
+    progress: 84,
+    area: '420 ㎡',
+    budget: '¥ 310 万',
+    due: '08 / 12',
+    lead: '许知遥',
+    tone: '#6b6358',
+    accent: '#d8cfbf',
+  },
+  {
+    id: 'forest-office',
+    code: 'SL-26012',
+    name: '森屿 · 创意办公',
+    client: '森屿科技',
+    stage: '现场施工',
+    status: 'construction',
+    progress: 66,
+    area: '1,250 ㎡',
+    budget: '¥ 680 万',
+    due: '10 / 30',
+    lead: '林予安',
+    tone: '#707b76',
+    accent: '#dce7e1',
+  },
+];
+
+export const demoCustomers = [
+  { name: '周静雯', company: '个人客户', projects: 2, value: '¥ 236 万', owner: '林予安', status: '合作中', last: '今天 10:32', tone: 'bg-[#ddd9ff] text-brand-800' },
+  { name: '澄光置业', company: '地产开发', projects: 3, value: '¥ 680 万', owner: '陈一川', status: '合作中', last: '昨天 16:20', tone: 'bg-[#ffe8bd] text-[#805912]' },
+  { name: '沈屿', company: '个人客户', projects: 1, value: '¥ 310 万', owner: '许知遥', status: '待回访', last: '7 月 26 日', tone: 'bg-[#d9f7ec] text-[#167a5c]' },
+  { name: '森屿科技', company: '科技企业', projects: 2, value: '¥ 920 万', owner: '林予安', status: '合作中', last: '7 月 25 日', tone: 'bg-[#ffe0dd] text-[#a34138]' },
+  { name: '有山餐饮', company: '餐饮品牌', projects: 1, value: '¥ 128 万', owner: '许知遥', status: '新线索', last: '7 月 24 日', tone: 'bg-[#dfeaff] text-[#315dac]' },
+];
+
+export const scheduleItems = [
+  { item: '模块沙发 / Mags Soft', space: '客厅', brand: 'HAY', status: '已确认', quantity: '1 组', price: '¥ 42,800', delivery: '08 / 16' },
+  { item: '洞石茶几 / Plateau', space: '客厅', brand: 'Audo', status: '比选中', quantity: '1 件', price: '¥ 18,600', delivery: '待确认' },
+  { item: '羊毛地毯 / Pebble', space: '客厅', brand: 'Muuto', status: '已下单', quantity: '1 件', price: '¥ 12,900', delivery: '08 / 08' },
+  { item: '餐桌 / CPH 30', space: '餐厅', brand: 'HAY', status: '已到货', quantity: '1 件', price: '¥ 21,500', delivery: '已签收' },
+  { item: '吊灯 / 2097', space: '餐厅', brand: 'Flos', status: '变更中', quantity: '1 件', price: '¥ 19,800', delivery: '09 / 02' },
+  { item: '餐椅 / CH24', space: '餐厅', brand: 'Carl Hansen', status: '意向', quantity: '6 件', price: '¥ 46,800', delivery: '待确认' },
+];
+
+export const teamMembers = [
+  { name: '林予安', role: '主创建筑设计师', projects: 4, load: 86, initials: '林', color: 'bg-[#dcd9ff] text-brand-800' },
+  { name: '陈一川', role: '设计总监', projects: 3, load: 72, initials: '陈', color: 'bg-[#ffe4b2] text-[#7d5710]' },
+  { name: '许知遥', role: '软装设计师', projects: 4, load: 68, initials: '许', color: 'bg-[#d3f5e8] text-[#147658]' },
+  { name: '韩卓', role: '施工经理', projects: 3, load: 91, initials: '韩', color: 'bg-[#ffdeda] text-[#a23e36]' },
+  { name: '顾宁', role: '采购经理', projects: 5, load: 78, initials: '顾', color: 'bg-[#dce8ff] text-[#315eaf]' },
+  { name: '苏梨', role: '项目助理', projects: 6, load: 64, initials: '苏', color: 'bg-[#f0dcff] text-[#7c3aa5]' },
+];
+
+export const financeRows = [
+  { no: 'QT-2026-018', title: '青山湖住宅 · 软装采购报价', project: '青山湖 · 云栖住宅', total: '¥ 368,420', paid: '¥ 110,000', status: '部分收款', due: '08 / 15' },
+  { no: 'INV-2026-031', title: '北外滩会所 · 第二期设计费', project: '北外滩 · 澄光会所', total: '¥ 180,000', paid: '¥ 180,000', status: '已收款', due: '已完成' },
+  { no: 'CO-2026-009', title: '松庭别墅 · 灯光系统变更', project: '西湖 · 松庭别墅', total: '¥ 46,800', paid: '¥ 0', status: '待客户确认', due: '08 / 02' },
+  { no: 'INV-2026-029', title: '森屿办公 · 施工配合费', project: '森屿 · 创意办公', total: '¥ 92,000', paid: '¥ 0', status: '已逾期', due: '07 / 25' },
+];

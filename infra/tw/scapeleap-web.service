@@ -1,0 +1,24 @@
+[Unit]
+Description=ScapeLeap Next.js application
+After=network-online.target postgresql.service
+Wants=network-online.target postgresql.service
+
+[Service]
+Type=simple
+User=SCAPELEAP_DEPLOY_USER
+Group=SCAPELEAP_DEPLOY_USER
+WorkingDirectory=/srv/scapeleap-next/current
+EnvironmentFile=/etc/scapeleap-next/production.env
+ExecStart=/usr/local/bin/node server.js
+Restart=always
+RestartSec=3
+TimeoutStopSec=20
+KillSignal=SIGTERM
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/srv/scapeleap-next/data
+
+[Install]
+WantedBy=multi-user.target
