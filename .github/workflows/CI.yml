@@ -11,6 +11,11 @@ jobs:
     name: Quality
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      NEXT_PUBLIC_APP_URL: http://localhost:3008
+      BETTER_AUTH_URL: http://localhost:3008
+      BETTER_AUTH_SECRET: ci-quality-only-secret-at-least-32-characters
+      DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/postgres
     steps:
       - uses: actions/checkout@v6
       - name: Set up Node.js
@@ -21,7 +26,7 @@ jobs:
       - run: npm run check:types
       - run: npm run check:deps
       - run: npm run check:i18n
-      - run: npm test
+      - run: npm run test:unit
 
   build:
     name: Production build
@@ -37,14 +42,14 @@ jobs:
         env:
           NEXT_PUBLIC_APP_URL: http://localhost:3008
           BETTER_AUTH_URL: http://localhost:3008
-          BETTER_AUTH_SECRET: ci-build-only-secret
+          BETTER_AUTH_SECRET: ci-build-only-secret-at-least-32-characters
           DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/postgres
 
   e2e:
     name: Browser tests
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    container: mcr.microsoft.com/playwright:v1.61.0-noble
+    container: mcr.microsoft.com/playwright:v1.62.0-noble
     steps:
       - uses: actions/checkout@v6
       - name: Set up Node.js
@@ -55,7 +60,13 @@ jobs:
         env:
           NEXT_PUBLIC_APP_URL: http://localhost:3008
           BETTER_AUTH_URL: http://localhost:3008
-          BETTER_AUTH_SECRET: ci-e2e-only-secret
+          BETTER_AUTH_SECRET: ci-e2e-only-secret-at-least-32-characters
+          DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/postgres
+      - run: npm test
+        env:
+          NEXT_PUBLIC_APP_URL: http://localhost:3008
+          BETTER_AUTH_URL: http://localhost:3008
+          BETTER_AUTH_SECRET: ci-ui-only-secret-at-least-32-characters
           DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/postgres
       - run: npm run test:e2e
       - name: Upload test results
