@@ -49,7 +49,7 @@ if [[ ! -f "${config_dir}/production.env" ]]; then
     echo "SCAPELEAP_DATABASE_NAME=${database_name}"
     echo "SCAPELEAP_DEPLOY_USER=${deploy_user}"
     echo "SCAPELEAP_DEPLOY_BRANCH=main"
-    echo "SCAPELEAP_REPO_URL=git@github.com:kam74515-boop/ScapeLeap.git"
+    echo "SCAPELEAP_REPO_URL=git@github-scapeleap-next:kam74515-boop/ScapeLeap.git"
     echo "SCAPELEAP_PUBLIC_URL=https://museart.cloud"
     echo "SCAPELEAP_ROOT=${app_root}"
   } >"${config_dir}/production.env"

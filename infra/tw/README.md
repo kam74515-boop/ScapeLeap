@@ -17,8 +17,9 @@ deleted. Caddy is switched only after the new service passes its health check.
 
 ## First install
 
-1. Create the private GitHub repository and add the server's SSH public key as
-   a read-only deploy key.
+1. Create the private GitHub repository and add the server's dedicated SSH
+   public key as a read-only deploy key. The host alias
+   `github-scapeleap-next` keeps this key separate from legacy repositories.
 2. Update `SCAPELEAP_REPO_URL` in the generated production environment when
    the repository name differs.
 3. On the Taiwan host, run:
