@@ -17,7 +17,7 @@ jobs:
       BETTER_AUTH_SECRET: ci-quality-only-secret-at-least-32-characters
       DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/postgres
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Set up Node.js
         uses: ./.github/actions/setup-project
         with:
@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Set up Node.js
         uses: ./.github/actions/setup-project
         with:
@@ -51,7 +51,7 @@ jobs:
     timeout-minutes: 20
     container: mcr.microsoft.com/playwright:v1.62.0-noble
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Set up Node.js
         uses: ./.github/actions/setup-project
         with:
